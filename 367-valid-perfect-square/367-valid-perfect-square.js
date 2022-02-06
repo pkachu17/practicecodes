@@ -2,6 +2,7 @@
  * @param {number} num
  * @return {boolean}
  */
+
 var isPerfectSquare = function(num) {
     var mid = Math.round(num/2);
     for(var i=0; i<num/2; i++){
