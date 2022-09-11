@@ -12,22 +12,21 @@ class Solution {
         return hasPath(graph, source, destination, visited);
     }
     public boolean hasPath(ArrayList<Integer>[] graph, int source, int destination, boolean[] visited){
-        if(source == destination){
-            return true;
-        }
-        ArrayDeque<Integer> q = new ArrayDeque<Integer>();
+        if(source==destination) return true;
+        ArrayDeque<Integer> q = new ArrayDeque();
         q.add(source);
         while(q.size()>0){
             int temp = q.remove();
             if(!visited[temp]){
                 visited[temp] = true;
-                for(Integer nbr : graph[temp]){
+                for(int nbr : graph[temp]){
                     if(nbr == destination){
                         return true;
                     }
                     q.add(nbr);
                 }
-            }else{
+            }
+            else{
                 continue;
             }
         }
