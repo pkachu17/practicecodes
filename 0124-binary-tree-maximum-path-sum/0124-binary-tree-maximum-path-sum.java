@@ -33,8 +33,8 @@ class Solution {
         
         res = Math.max(res, r.val);
         res = Math.max(res, r.val + lh + rh);
-        res = Math.max(res, r.val + lh);
-        res = Math.max(res, r.val + rh);
+        res = Math.max(res, r.val + Math.max(lh, rh));
+        // res = Math.max(res, r.val + rh);
         
         int re = Math.max(r.val,  r.val + Math.max(lh, rh));
         
