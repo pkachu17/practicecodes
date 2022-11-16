@@ -13,16 +13,17 @@
  *     }
  * }
  */
-class Solution{
-    public int count=0;
+class Solution {
+    public int count;
     public int goodNodes(TreeNode root) {
+        count = 0;
         helper(root, Integer.MIN_VALUE);
         return count;
     }
-
-    public void helper(TreeNode root, int maxsofar){
-        if(maxsofar <= root.val) count++;
-        if(root.right!=null) helper(root.right, Math.max(root.val, maxsofar));
-        if(root.left!=null) helper(root.left, Math.max(root.val, maxsofar));
+    
+    public void helper(TreeNode root, int maxSoFar){
+        if(root.val >= maxSoFar) count++;
+        if(root.left != null ) helper(root.left, Math.max(root.val, maxSoFar)); 
+        if(root.right != null ) helper(root.right, Math.max(root.val, maxSoFar));
     }
 }
