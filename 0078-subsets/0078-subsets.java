@@ -11,7 +11,7 @@ class Solution {
         list.add(new ArrayList<>(cur));
         for(int i=index; i<nums.length; i++){
             cur.add(nums[i]);
-            backTrack(nums, list, cur, i+1);
+            backTrack(nums, list, cur, i + 1);
             cur.remove(cur.size()-1);
         } 
     }
