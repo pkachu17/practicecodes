@@ -10,9 +10,6 @@ class Solution {
                 }
             }
         }
-        for(int i =0; i<dp.length; i++){
-            System.out.println(dp[i]);
-        }
         return dp[amount] > amount? -1:dp[amount];
     }
 }
