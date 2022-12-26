@@ -7,7 +7,7 @@ class Solution {
             combine[i][0] = position[i];
             combine[i][1] = speed[i];
         }
-        Arrays.sort(combine, java.util.Comparator.comparingInt(o->o[0]));
+        Arrays.sort(combine, (a,b)-> (a[0] - b[0]));
         for(int i=0; i<combine.length; i++){
             System.out.println("pos:"+combine[i][0]+", speed:"+combine[i][1]);
         }
