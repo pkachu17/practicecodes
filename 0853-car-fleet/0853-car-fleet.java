@@ -1,24 +1,29 @@
 class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
-        if(position.length==1) return 1;
-        Stack<Double> stack = new Stack();
-        int[][] combine = new int [position.length][2];
-        for(int i =0; i< position.length; i++){
-            combine[i][0] = position[i];
-            combine[i][1] = speed[i];
+        // sort the cars by position in ascending order
+        int[][] cars = new int[position.length][2];
+        for (int i = 0; i < position.length; i++) {
+            cars[i] = new int[] { position[i], speed[i] };
         }
-        Arrays.sort(combine, (a,b)-> (a[0] - b[0]));
-        for(int i=0; i<combine.length; i++){
-            System.out.println("pos:"+combine[i][0]+", speed:"+combine[i][1]);
+        Arrays.sort(cars, (a, b) -> a[0] - b[0]);
+
+        // calculate the time it takes for each car to reach the target
+        double[] times = new double[position.length];
+        for (int i = 0; i < position.length; i++) {
+            int pos = cars[i][0];
+            int speed1 = cars[i][1];
+            times[i] = (double)(target - pos) / speed1;
         }
-        for(int i=combine.length-1; i>=0; i--){
-            double curtime = (double) (target-combine[i][0]) / combine[i][1];
-            if(!stack.isEmpty() && curtime <= stack.peek()){
-                continue;
-            } else{
-                stack.push(curtime);
+
+        // count the number of car fleets
+        int count = 0;
+        double maxTime = 0;
+        for (int i = position.length - 1; i >= 0; i--) {
+            if (times[i] > maxTime) {
+                count++;
+                maxTime = times[i];
             }
         }
-        return stack.size();
+        return count;
     }
-}  
+}
