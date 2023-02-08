@@ -3,7 +3,7 @@ class Solution {
         Arrays.sort(nums);
         int left =0;
         int ans =0;
-        long sum =0;
+        int sum =0;
         for(int right =0; right<nums.length; right++){
             sum = sum + nums[right];
             while( k < nums[right] * (right-left+1) - sum){
