@@ -6,7 +6,7 @@ class Solution {
         long sum =0;
         for(int right =0; right<nums.length; right++){
             sum = sum + nums[right];
-            while( k < nums[right] * 1L * (right-left+1) - sum){
+            while( k < nums[right] * (right-left+1) - sum){
                 sum = sum - nums[left];
                 left++;
             }
