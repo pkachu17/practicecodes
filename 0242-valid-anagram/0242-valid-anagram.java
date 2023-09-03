@@ -8,48 +8,23 @@ class Solution {
         // }
         // return false;
         
-        char[] str1 = s.toCharArray();
-        char[] str2 = t.toCharArray();
+        char[] s1 = s.toCharArray();
+        char[] t1 = t.toCharArray();
         int[] arr = new int[26];
         
-        for(int i=0; i<str1.length; i++){
-            arr[str1[i]-97]++;
+        for(int i=0; i<s.length(); i++){
+            arr[s1[i]-97]++;
         }
         
-        for(int i=0; i<str2.length; i++){
-            arr[str2[i]-97]--;
+        for(int i=0; i<t.length(); i++){
+            arr[t1[i]-97]--;
         }
         
         for(int i=0; i<arr.length; i++){
-            if(arr[i] != 0) return false;
+            if(arr[i]!=0) return false;
         }
         
         return true;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//         char[] str1 = s.toCharArray();
-//         char[] str2 = t.toCharArray();
-//         int[] arr = new int[26];
-        
-//         for(int i=0; i<str1.length; i++){
-//             arr[str1[i]-97]++;
-//         }
-//         for(int i=0; i<str2.length; i++){
-//             arr[str2[i]-97]--;
-//         }
-//         for(int i=0; i<arr.length; i++){
-//             if(arr[i]!=0) return false;
-//         }
-//         return true;
         
     }
     public String Sort(String s){
