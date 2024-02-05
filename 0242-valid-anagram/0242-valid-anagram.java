@@ -4,11 +4,11 @@ class Solution {
         char[] str2 = t.toCharArray();
         int[] arr = new int[26];
         
-        for(int i=0; i<s.length(); i++){
+        for(int i=0; i<str1.length; i++){
             arr[str1[i]-97]++;
         }
         
-        for(int i=0; i<t.length(); i++){
+        for(int i=0; i<str2.length; i++){
             arr[str2[i]-97]--;
         }
         
@@ -17,5 +17,5 @@ class Solution {
         }
         
         return true;
-    }
+     }
 }
